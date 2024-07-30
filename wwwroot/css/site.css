@@ -1,0 +1,59 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+a {
+    color: #0077cc;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+input[type=text], input[type=submit] {
+    width: 100%
+}
+
+td.create {
+    width: 20%;
+}
+
+td.switch,
+td.delete {
+    text-align: right;
+    white-space: nowrap;
+    width: 1%;
+}
+
+tr.checked td {
+    background-color: lightgray;
+}
+
+tr.checked td.title {
+    text-decoration: line-through;
+}

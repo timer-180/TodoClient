@@ -1,0 +1,48 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Todo List";
+}
+
+<form>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td><input type="text" asp-for="NewTitle" placeholder="Title..." /></td>
+                <td class="create">
+                    <input type="hidden" asp-for="Action" value="Create" />
+                    <input type="submit" value="Add" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+
+@if (!string.IsNullOrEmpty(@Model.ErrorMessage))
+{
+    <p class="text-danger text-center">@Model.ErrorMessage</p>
+}
+
+<table class="table">
+    <tbody>
+        @foreach (var item in @Model.TodoItems)
+        {
+            @if (item.IsComplete)
+            {
+                <tr class="checked">
+                    <td class="title">@Html.DisplayFor(modelItem => item.Title)</td>
+                    <td class="switch"><a asp-action="Switch" asp-route-id="@item.Id">Uncomplete</a></td>
+                    <td class="delete"><a asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
+                </tr>
+            }
+            else
+            {
+                <tr class="unchecked">
+                    <td class="title">@Html.DisplayFor(modelItem => item.Title)</td>
+                    <td class="switch"><a asp-action="Switch" asp-route-id="@item.Id">Complete</a></td>
+                    <td class="delete"><a asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
